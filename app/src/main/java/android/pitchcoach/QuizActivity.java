@@ -1,6 +1,9 @@
 package android.pitchcoach;
 
 import android.os.Bundle;
+import android.pitchcoach.baseClasses.BaseQuestion;
+import android.pitchcoach.baseClasses.QuizBaseFragment;
+import android.pitchcoach.utility.QuestionsGenerator;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -28,6 +31,9 @@ public class QuizActivity extends AppCompatActivity implements QuizBaseFragment.
      */
     public native String stringFromJNI();
 
+    /**
+     *
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +44,8 @@ public class QuizActivity extends AppCompatActivity implements QuizBaseFragment.
         questionList = generator.generateQuestions();
     }
 
-
-
-
     /**
-     * Called by QuizFragment to request current question
+     * Called by {@link QuizBaseFragment} to request current question
      * @return BaseQuestion.
      */
     public BaseQuestion getQuestion(){
@@ -50,8 +53,8 @@ public class QuizActivity extends AppCompatActivity implements QuizBaseFragment.
     }
 
     /**
-     * Callback from QuizFragment containing result of particular quiz
-     * TODO: Apply logic to create next QuizFragment
+     * Callback from {@link QuizBaseFragment} after congratz/wrong answer popup is finished
+     * TODO: Apply logic to create next {@link QuizBaseFragment}
      */
     @Override
     public void submitAnswer(boolean isCorrectAnswer) {

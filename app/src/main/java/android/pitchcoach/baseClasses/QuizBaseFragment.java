@@ -1,6 +1,7 @@
-package android.pitchcoach;
+package android.pitchcoach.baseClasses;
 
 import android.content.Context;
+import android.pitchcoach.QuizActivity;
 import android.support.v4.app.Fragment;
 
 /**
