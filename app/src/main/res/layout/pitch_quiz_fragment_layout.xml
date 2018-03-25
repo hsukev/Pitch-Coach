@@ -1,8 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--TODO: Create layout for PitchQuestion. Should have a view for question, gridlayout for answer, and a submit button -->
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<?xml version="1.0" encoding="utf-8"?><!--TODO: Create layout for PitchQuestion. Should have a view for question, gridlayout for answer, and a submit button -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="9">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

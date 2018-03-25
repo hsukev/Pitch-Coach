@@ -1,8 +1,8 @@
 package android.pitchcoach.baseClasses;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.pitchcoach.QuizActivity;
-import android.support.v4.app.Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +17,7 @@ public abstract class QuizBaseFragment extends Fragment {
     public QuizBaseFragment() {
         // Required empty public constructor
     }
+
 
 
     @Override

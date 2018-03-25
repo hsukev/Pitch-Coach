@@ -30,6 +30,8 @@ public class PitchQuizFragment extends QuizBaseFragment {
         // Required empty public constructor
     }
 
+
+
     /**
      * TODO: Use elements in {@link PitchQuestion} instance to create quiz components
      */

@@ -31,4 +31,9 @@ public class PitchQuestion implements BaseQuestion<Integer, String> {
     public Collection<String> getChoices() {
         return null;
     }
+
+    @Override
+    public QuestionType getQuestionType() {
+        return QuestionType.PITCH;
+    }
 }
