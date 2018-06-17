@@ -1,4 +1,4 @@
-package android.pitchcoach;
+package android.com.pitchcoach;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("android.pitchcoach", appContext.getPackageName());
+        assertEquals("android.com.pitchcoach", appContext.getPackageName());
     }
 }

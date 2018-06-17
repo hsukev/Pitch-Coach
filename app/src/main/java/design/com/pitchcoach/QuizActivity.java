@@ -1,17 +1,15 @@
-package android.pitchcoach;
+package design.com.pitchcoach;
 
+import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.com.pitchcoach.R;
 import android.os.Build;
 import android.os.Bundle;
-import android.pitchcoach.baseClasses.BaseQuestion;
-import android.pitchcoach.baseClasses.QuizBaseFragment;
-import android.pitchcoach.quizTypes.pitch.PitchQuizFragment;
-import android.pitchcoach.utility.QuestionsGenerator;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,6 +17,10 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import design.com.pitchcoach.baseClasses.BaseQuestion;
+import design.com.pitchcoach.baseClasses.QuizBaseFragment;
+import design.com.pitchcoach.quizTypes.pitch.PitchQuizFragment;
+import design.com.pitchcoach.utility.QuestionsGenerator;
 
 /**
  * Activity for holding a quiz session and state
@@ -54,20 +56,20 @@ public class QuizActivity extends AppCompatActivity implements QuizBaseFragment.
         setContentView(R.layout.quiz_activity);
         ButterKnife.bind(this);
 
-        // Example of a call to a native method
-        TextView tv = (TextView) findViewById(R.id.sample_text);
-        tv.setText(stringFromJNI());
+//        // Example of a call to a native method
+//        TextView tv = (TextView) findViewById(R.id.sample_text);
+//        tv.setText(stringFromJNI());
 
 
         QuestionsGenerator generator = new QuestionsGenerator(this);
-        questionList = generator.generateQuestions();
+        questionList = generator.generateQuestions(5, BaseQuestion.QuestionType.PITCH);
         initializeUI();
         createQuestionFragment();
     }
 
     private void initializeUI(){
         progressBar.setMax(questionList.size());
-        progressBar.setProgress(0);
+        progressBar.setProgress(4);
     }
 
     /**
@@ -85,15 +87,20 @@ public class QuizActivity extends AppCompatActivity implements QuizBaseFragment.
      */
     @Override
     public void submitAnswer(boolean isCorrectAnswer) {
-        currentQuestionIndex++;
-        updateProgressBar();
-        createQuestionFragment();
+        if(currentQuestionIndex<questionList.size()){
+            currentQuestionIndex++;
+            updateProgressBar();
+            createQuestionFragment();
+        }else{
+            Log.d(getClass().getSimpleName(), "g8 m8 8/8");
+        }
     }
 
     /**
      * TODO: Update ProgressBar UI. Add custom animations
      */
     public void updateProgressBar() {
+        Log.d("test", currentQuestionIndex+"");
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
             progressBar.setProgress(currentQuestionIndex, true);
         }else{
@@ -110,7 +117,7 @@ public class QuizActivity extends AppCompatActivity implements QuizBaseFragment.
 
         switch (question.getQuestionType()) {
             case PITCH:
-                transaction.add(R.id.fragment_container, PitchQuizFragment.instantiate(this, "pitch")).commit();
+                transaction.add(R.id.fragment_container, Fragment.instantiate(this, PitchQuizFragment.class.getName())).commit();
                 break;
             case NOTE:
                 // same thing for note fragment

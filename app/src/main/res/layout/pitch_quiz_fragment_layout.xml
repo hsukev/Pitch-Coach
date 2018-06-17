@@ -11,11 +11,15 @@
         android:layout_weight="4" />
 
     <GridLayout
+        android:id="@+id/choices_grid"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4" />
 
     <TextView
+        android:text="submit"
+        android:gravity="center"
+        android:id="@+id/submit_button"
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:layout_height="wrap_content" />

@@ -5,7 +5,7 @@ extern "C"
 JNIEXPORT jstring
 
 JNICALL
-Java_android_pitchcoach_QuizActivity_stringFromJNI(
+Java_design_com_pitchcoach_QuizActivity_stringFromJNI(
         JNIEnv *env,
         jobject /* this */) {
     std::string hello = "Hello from C++";

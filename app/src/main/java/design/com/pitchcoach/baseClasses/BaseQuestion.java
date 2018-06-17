@@ -1,4 +1,4 @@
-package android.pitchcoach.baseClasses;
+package design.com.pitchcoach.baseClasses;
 
 import java.util.Collection;
 
@@ -11,7 +11,7 @@ import java.util.Collection;
 
 public interface BaseQuestion<Q, A> {
     Q getQuestion();
-    A getAnswwer();
+    A getAnswer();
     Collection<A> getChoices();
     QuestionType getQuestionType();
 

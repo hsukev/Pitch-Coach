@@ -1,8 +1,10 @@
-package android.pitchcoach.baseClasses;
+package design.com.pitchcoach.baseClasses;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.pitchcoach.QuizActivity;
+import android.util.Log;
+
+import design.com.pitchcoach.QuizActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,7 +25,7 @@ public abstract class QuizBaseFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
+        Log.d(getClass().getSimpleName(), getActivity().getClass().getSimpleName());
         mQuizActivity = (QuizActivity) getActivity();
 
         if (context instanceof QuizFragmentListener) {
@@ -56,8 +58,14 @@ public abstract class QuizBaseFragment extends Fragment {
         mListener.submitAnswer(isCorrect);
     }
 
-    public abstract void answeredRight();
-    public abstract void answeredWrong();
+    public void answeredRight(){
+        submitAnswer(true);
+    }
+    public void answeredWrong(){
+        submitAnswer(false);
+    }
+
+    public abstract void checkAnswer();
 
     /**
      * This interface must be implemented by activities that contain this

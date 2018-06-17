@@ -1,4 +1,4 @@
-package android.pitchcoach;
+package android.com.pitchcoach;
 
 import org.junit.Test;
 

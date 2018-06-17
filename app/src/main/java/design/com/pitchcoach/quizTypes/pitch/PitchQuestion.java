@@ -1,8 +1,10 @@
-package android.pitchcoach.quizTypes.pitch;
+package design.com.pitchcoach.quizTypes.pitch;
 
-import android.pitchcoach.baseClasses.BaseQuestion;
-
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
+import design.com.pitchcoach.baseClasses.BaseQuestion;
 
 /**
  * TODO: Types are still tentative.
@@ -11,25 +13,30 @@ import java.util.Collection;
  */
 
 public class PitchQuestion implements BaseQuestion<Integer, String> {
+    Integer question = 3;
+    List<String> choices = new ArrayList<>(3);
+    String answer = "2";
 
     // TODO: Define constructor according to required types
     public PitchQuestion(){
-
     }
 
     @Override
     public Integer getQuestion() {
-        return null;
+        return question;
     }
 
     @Override
-    public String getAnswwer() {
-        return null;
+    public String getAnswer() {
+        return answer;
     }
 
     @Override
     public Collection<String> getChoices() {
-        return null;
+        choices.add("c1");
+        choices.add("c2");
+        choices.add("c3");
+        return choices;
     }
 
     @Override
